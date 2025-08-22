@@ -12,9 +12,11 @@ provider "aws" {
 }
 
 terraform {
-  backend "s3" {    
-    key    = "Level1/vpc.tfstate"  # Path within the S3 bucket
+  backend "s3" {
+    bucket = "rahul1456aws"
+    key    = "Level2/iam.tfstate"  # Path within the S3 bucket
     region = "us-east-1"                # Specify the AWS region
+    #dynamodb_table = "aws_dynamodb_table.terralock.name"   # Optional: specify DynamoDB table for state locking
     encrypt = true                           # Optional: Enable server-side encryption for state file
   }
 }
