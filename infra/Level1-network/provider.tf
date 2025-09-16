@@ -5,16 +5,9 @@ terraform {
       version = "~> 5.0"
     }
   }
+  backend "s3" {}
 }
 
 provider "aws" {
   region = "us-east-1"  # Update this to your desired AWS region
-}
-
-terraform {
-  backend "s3" {    
-    key    = "Level1/vpc.tfstate"  # Path within the S3 bucket
-    region = "us-east-1"                # Specify the AWS region
-    encrypt = true                           # Optional: Enable server-side encryption for state file
-  }
 }
